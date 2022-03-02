@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+// importing these functions from react
 
 export const EmployeeList = () => {
+  // declaring the functional component named employee list which allow us to
+  // export what I need to see on DOM
   // [employees is the variable name, changeEmployee is the function]
   const [employees, changeEmployee] = useState([]);
   const [specialties, setSpecial] = useState("");
