@@ -4,6 +4,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { CustomerList } from "./customers/CustomerList";
 import { EmployeeList } from "./employees/EmployeeList";
+import { TicketForm } from "./servedTickets/TicketForm";
 import { TicketList } from "./servedTickets/TicketList";
 
 // purpose of this component is to render the individual pages that were selected by navBar
@@ -22,7 +23,11 @@ export const ApplicationViews = () => {
         <EmployeeList />
       </Route>
 
-      <Route path="/tickets">
+      <Route path="/tickets/create">
+        <TicketForm />
+      </Route>
+
+      <Route exact path="/tickets">
         <TicketList />
       </Route>
     </>
