@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // importing these functions from react
 
 export const EmployeeList = () => {
@@ -7,6 +8,7 @@ export const EmployeeList = () => {
   // [employees is the variable name, changeEmployee is the function]
   const [employees, changeEmployee] = useState([]);
   const [specialties, setSpecial] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     fetch("http://localhost:8088/employees")
@@ -28,6 +30,12 @@ export const EmployeeList = () => {
 
   return (
     <>
+      {/* use history() to immediately change URL to show the ticket form /employees/create */}
+      <div>
+        <button onClick={() => history.push("/employees/create")}>
+          Hire Employee
+        </button>
+      </div>
       <div>Specialties: {specialties}</div>
       {employees.map((employee) => {
         return <p key={`employee--${employee.id}`}>{employee.name}</p>;
