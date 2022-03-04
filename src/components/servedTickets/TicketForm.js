@@ -28,7 +28,7 @@ export const TicketForm = () => {
     // send newTicket obj to API
     const fetchOption = {
       method: "POST",
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
       // save the body of the request which is the newTicket obj

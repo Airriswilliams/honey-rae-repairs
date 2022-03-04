@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import "./Tickets.css";
 
 export const TicketList = () => {
   // [tickets is the variable name, updateTickets is the function]
@@ -24,9 +25,11 @@ export const TicketList = () => {
     setActive(`There are ${activeTicketCount} open tickets`);
   }, [tickets]);
 
+  {
+    /* use history() to immediately change URL to show the ticket form /tickets/create */
+  }
   return (
     <>
-      {/* use history() to immediately change URL to show the ticket form /tickets/create */}
       <div>
         <button onClick={() => history.push("/tickets/create")}>
           Create Ticket
@@ -36,9 +39,10 @@ export const TicketList = () => {
 
       {tickets.map((ticket) => {
         return (
-          <p key={`ticket--${ticket.id}`}>
-            {ticket.description} submitted by {ticket.customer.name} and worked
-            on by {ticket.employee.name}
+          // is ticket.emergency true, if yes emergency if false ticket
+          <p className={ticket.emergency ? `emergency` : `ticket`}>
+            {ticket.emergency ? "🚑" : ""} {ticket.description} submitted by{" "}
+            {ticket.customer.name} and worked on by {ticket.employee.name}
           </p>
         );
       })}
