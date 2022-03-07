@@ -5,8 +5,10 @@ import { Route } from "react-router-dom";
 import { CustomerList } from "./customers/CustomerList";
 import { EmployeeForm } from "./employees/EmployeeForm";
 import { EmployeeList } from "./employees/EmployeeList";
+import { Ticket } from "./servedTickets/Ticket";
 import { TicketForm } from "./servedTickets/TicketForm";
 import { TicketList } from "./servedTickets/TicketList";
+import { Employee } from "./employees/Employee";
 
 // purpose of this component is to render the individual pages that were selected by navBar
 // links, click on the links and the following gets triggered.
@@ -28,12 +30,20 @@ export const ApplicationViews = () => {
         <EmployeeList />
       </Route>
 
+      <Route exact path="/employees/:employeeId(\d+)">
+        <Employee />
+      </Route>
+
       <Route path="/tickets/create">
         <TicketForm />
       </Route>
 
       <Route exact path="/tickets">
         <TicketList />
+      </Route>
+
+      <Route exact path="/tickets/:ticketId(\d+)">
+        <Ticket />
       </Route>
     </>
   );

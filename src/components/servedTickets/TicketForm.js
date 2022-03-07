@@ -14,7 +14,6 @@ export const TicketForm = () => {
   // once Submit Ticket button is clicked, we need a function to perform Post operation
   // function that uses state variable to create a new obj to post to API
   const submitTicket = (event) => {
-    event.preventDefault();
     const newTicket = {
       description: ticket.description,
       emergency: ticket.emergency,

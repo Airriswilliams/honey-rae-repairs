@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // importing these functions from react
 
@@ -38,7 +39,11 @@ export const EmployeeList = () => {
       </div>
       <div>Specialties: {specialties}</div>
       {employees.map((employee) => {
-        return <p key={`employee--${employee.id}`}>{employee.name}</p>;
+        return (
+          <p key={`employee--${employee.id}`}>
+            <Link to={`/employees/${employee.id}`}>{employee.name}</Link>
+          </p>
+        );
       })}
     </>
   );
