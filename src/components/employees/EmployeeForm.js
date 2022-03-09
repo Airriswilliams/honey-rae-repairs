@@ -42,7 +42,7 @@ export const EmployeeForm = () => {
               autoFocus
               type="text"
               className="form-control"
-              placeholder="Brief description of problem"
+              placeholder="Name of New Employee"
               onChange={(evt) => {
                 const copy = { ...employee };
                 copy.name = evt.target.value;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-
+import { getAllTickets } from "../ApiManager";
 import "./Tickets.css";
 
 export const TicketList = () => {
@@ -10,13 +10,9 @@ export const TicketList = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(
-      "http://localhost:8088/serviceTickets?_expand=employee&_expand=customer"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        updateTickets(data);
-      });
+    getAllTickets().then((ticketArray) => {
+      updateTickets(ticketArray);
+    });
   }, [gointToDeleteTicket]);
 
   //Function to delete the service request.
